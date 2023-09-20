@@ -4,4 +4,4 @@
 
 ### The Class Diagram:
 
-![iphone-2007-class-diagram](https://github.com/dev-joaovitor/java-first-iphone-design/assets/116603666/bfe1f23f-f1db-4a2f-8e0a-4af8783e2844)
+![iphone-2007-class-diagram](./diagram/iphone-2007-class-diagram.svg)
