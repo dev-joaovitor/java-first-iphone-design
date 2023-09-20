@@ -4,6 +4,8 @@ import edu.joao.apple.iphone.apps.Contacts;
 import edu.joao.apple.iphone.apps.SafariBrowser;
 import edu.joao.apple.iphone.apps.iPod;
 
+import java.util.*;
+
 public class iPhone extends SmartPhone implements iPod, SafariBrowser, Contacts {
 
     // device
@@ -23,6 +25,7 @@ public class iPhone extends SmartPhone implements iPod, SafariBrowser, Contacts 
     private boolean isContactsOpen = false;
     private boolean isOnCall = false;
     private String selectedContact;
+    final private Map<Integer, String> voiceMailList = new HashMap<>();
 
     private boolean isContactsOpen() {
         return isContactsOpen;
@@ -46,6 +49,10 @@ public class iPhone extends SmartPhone implements iPod, SafariBrowser, Contacts 
 
     private void setSelectedContact(String selectedContact) {
         this.selectedContact = selectedContact;
+    }
+
+    public void removeVoiceMail(Integer id){
+        voiceMailList.remove(id);
     }
 
     public int getSafariTabs() {
@@ -311,5 +318,26 @@ public class iPhone extends SmartPhone implements iPod, SafariBrowser, Contacts 
             return;
         }
         System.out.println("there's no call going on");
+    }
+
+    @Override
+    public void getVoiceMailList() {
+        System.out.println(voiceMailList);
+    }
+
+    @Override
+    public void listenToVoiceMail(Integer id) {
+        String contact = voiceMailList.get(id);
+
+        if (contact.length() > 0){
+            System.out.println("listening to voicemail by: " + voiceMailList.get(id));
+            removeVoiceMail(id);
+            return;
+        }
+        System.out.println("there's no voicemail with this id");
+    }
+
+    public void addVoiceMailToList(Integer id, String contactName) {
+        voiceMailList.put(id, contactName);
     }
 }

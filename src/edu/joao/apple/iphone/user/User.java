@@ -58,6 +58,16 @@ public class User {
             myIphone.endCall();
         }
         myIphone.closeContacts();
+
+        myIphone.addVoiceMailToList(1, "joao");
+        myIphone.addVoiceMailToList(2, "mica");
+        myIphone.addVoiceMailToList(3, "matheus");
+        myIphone.addVoiceMailToList(4, "vitor");
+        myIphone.getVoiceMailList();
+        myIphone.listenToVoiceMail(2);
+        myIphone.listenToVoiceMail(3);
+        myIphone.getVoiceMailList();
+
         System.out.println("\n");
 
         myIphone.turnOff();

@@ -6,4 +6,6 @@ public interface Contacts {
     void selectContact(String contactName);
     void call();
     void endCall();
+    void getVoiceMailList();
+    void listenToVoiceMail(Integer id);
 }
